@@ -20,7 +20,7 @@ from bingo.symbolic_regression.agraph.intron_mutation import AGraphMutation
 from bingo.symbolic_regression.agraph.population_crossover import AGraphCrossover
 from bingo.variation.var_and_all import VarAndAll
 
-POP_SIZE = 20
+POP_SIZE = 40
 STACK_SIZE = 32
 MAX_GEN = 1000
 FIT_THRESH = -np.inf

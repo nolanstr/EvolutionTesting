@@ -19,7 +19,7 @@ from bingo.symbolic_regression import ComponentGenerator, \
 from bingo.symbolic_regression.bayes_fitness_function import \
                                       BayesFitnessFunction
 
-POP_SIZE = 20
+POP_SIZE = 40
 STACK_SIZE = 32
 MAX_GEN = 1000
 FIT_THRESH = -np.inf
