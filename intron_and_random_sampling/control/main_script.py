@@ -19,7 +19,7 @@ from bingo.symbolic_regression import ComponentGenerator, \
 from bingo.symbolic_regression.bayes_fitness_function import \
                                       BayesFitnessFunction
 
-POP_SIZE = 40
+POP_SIZE = 10
 STACK_SIZE = 32
 MAX_GEN = 1000
 FIT_THRESH = -np.inf
@@ -61,7 +61,8 @@ def execute_generational_steps():
     pareto_front = ParetoFront(secondary_key = lambda ag: ag.get_complexity(), 
                             similarity_function=agraph_similarity)
 
-    evaluator = Evaluation(bff, redundant=True, multiprocess=8)
+    #evaluator = Evaluation(bff, redundant=True, multiprocess=8)
+    evaluator = Evaluation(bff, multiprocess=8)
 
     selection_phase=BayesCrowding()
     ea = GeneralizedCrowdingEA(evaluator, crossover,
