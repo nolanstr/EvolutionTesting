@@ -21,7 +21,7 @@ from bingo.symbolic_regression.agraph.population_crossover import AGraphCrossove
 from bingo.variation.var_and_all import VarAndAll
 
 POP_SIZE = 20
-STACK_SIZE = 32
+STACK_SIZE = 64
 MAX_GEN = 500
 FIT_THRESH = -np.inf
 CHECK_FREQ = 10
