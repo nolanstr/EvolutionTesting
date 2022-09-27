@@ -4,6 +4,8 @@ import glob
 
 from bingo.evolutionary_optimizers.parallel_archipelago import \
         load_parallel_archipelago_from_file as lpaff
+from true_models import *
+from estimate_true_model_nmll import estimate_nmll_of_true_model
 
 def get_all_pickles(DIR):
 
@@ -60,7 +62,9 @@ DIRS = ['control', 'test']
 for color, DIR in zip(colors, DIRS):
     plot_dir_fitness_vs_gens(DIR, ax, color)
 
-true_nmll = -1.9273088728828391
+true_model = create_complex_true_model()
+true_nmll = estimate_nmll_of_true_model(true_model, 'noisy_data.npy')
+
 ax.axhline(true_nmll, color='k', linestyle='--', label='true model NMLL estimate')
 ax.set_xlabel('Generations')
 ax.set_ylabel('Normalized Marginal Log-Likelihood')

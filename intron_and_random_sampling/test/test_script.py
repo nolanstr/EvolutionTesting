@@ -22,9 +22,9 @@ from bingo.variation.var_and_all import VarAndAll
 
 POP_SIZE = 20
 STACK_SIZE = 32
-MAX_GEN = 5000
+MAX_GEN = 500
 FIT_THRESH = -np.inf
-CHECK_FREQ =10
+CHECK_FREQ = 10
 MIN_GEN = 100
 
 crossover_probability=0.4
@@ -32,7 +32,7 @@ mutation_probability=0.4
 
 def execute_generational_steps():
 
-    data = np.load('../noisy_data.npy')
+    data = np.load('../data/simple_noisy_data.npy')
     x, y = data[:,0].reshape((-1,1)), data[:,1].reshape((-1,1))
     training_data = ExplicitTrainingData(x, y)
 
@@ -64,8 +64,7 @@ def execute_generational_steps():
     pareto_front = ParetoFront(secondary_key = lambda ag: ag.get_complexity(), 
                             similarity_function=agraph_similarity)
 
-    #evaluator = Evaluation(bff, redundant=True, multiprocess=8)
-    evaluator = Evaluation(bff, multiprocess=8)
+    evaluator = Evaluation(bff, redundant=True, multiprocess=8)
 
     selection_phase=BayesCrowding()
     ea = GeneralizedCrowdingEA(evaluator, crossover,
