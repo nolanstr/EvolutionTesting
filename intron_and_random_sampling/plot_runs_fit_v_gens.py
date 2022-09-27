@@ -60,6 +60,8 @@ DIRS = ['control', 'test']
 for color, DIR in zip(colors, DIRS):
     plot_dir_fitness_vs_gens(DIR, ax, color)
 
+true_nmll = -1.9273088728828391
+ax.axhline(true_nmll, color='k', linestyle='--', label='true model NMLL estimate')
 ax.set_xlabel('Generations')
 ax.set_ylabel('Normalized Marginal Log-Likelihood')
 plt.legend()
